@@ -21,6 +21,9 @@ const App = () => {
       ? operators.includes(displayValue[displayValue.length - 1])
       : false;
   };
+  const lastIsPercent = () => {
+    return displayValue ? displayValue.endsWith("%") : false;
+  };
   const inputIsOperator = (input: string) => {
     return operators.includes(input);
   };
@@ -29,7 +32,17 @@ const App = () => {
     if (displayValue) {
       if (addedOperator) {
         if (!lastIsOperator()) {
-          const [first, second] = displayValue.split(operator);
+          let [first, second] = displayValue.split(operator);
+          if (first.includes("%")) {
+            first = first.slice(0, first.length - 1);
+            first = (Number(first) / 100).toString();
+            // if(lastIsPercent())
+          }
+          if (second && second.includes("%")) {
+            second = second.slice(0, second.length - 1);
+            second = (Number(second) / 100).toString();
+            // if(lastIsPercent())
+          }
           if (!second) return displayValue;
           let result: number = 0;
           if (operator === "+") {
@@ -43,10 +56,16 @@ const App = () => {
           }
           return result.toString();
         }
+      } else {
+        if (displayValue.includes("%")) {
+          let value = displayValue.slice(0, displayValue.length - 1);
+          value = (Number(value) / 100).toString();
+          return value;
+        }
       }
     }
-    // setOperator("");
-    // setAddedOperator(false);
+    setOperator("");
+    setAddedOperator(false);
     return displayValue;
   };
   const handleOperationInput = (input: string) => {
@@ -61,7 +80,6 @@ const App = () => {
       } else {
         // take displayValue split it into array by operator,calculate its value, and setDislayValue with result and this new operator
         setDisplayValue(() => {
-          console.log("line 63");
           return handleResult() + input;
         });
         setOperator(input);
@@ -72,7 +90,6 @@ const App = () => {
         setOperator(input);
         setAddedOperator(true);
         setDisplayValue((prev) => {
-          console.log("line 74");
           return prev + input;
         });
       }
@@ -96,7 +113,7 @@ const App = () => {
       handleMemoryInput(input);
     } else {
       // if it gets here, then it's just a number, setState with it regardless
-      if (input === "0") {
+      if (input === "0" || input === "%") {
         if (displayValue) {
           setDisplayValue((prev) => prev + input);
         }
@@ -104,17 +121,6 @@ const App = () => {
         setDisplayValue((prev) => prev + input);
       }
     }
-
-    /*
-    is input an operator?
-    handleOperationInput(input);*********
-    1. yes - has operator been set?
-        1. yes - do NOT add operator to screen,but updateOperator,replace operator on screen
-        2. no - does displayValue exist(""?)
-              1. yes - set display value as first value,setOperator,setAddedOperator 
-              2. no - do nothing
-    2. no - its a number. setdisplayedvalue with it
-    */
   };
 
   return (
