@@ -4,19 +4,8 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Button,
-  NativeTouchEvent,
-  NativeSyntheticEvent,
 } from "react-native";
-
-const butt: string[][] = [
-  ["AC", "^", "%", "÷"],
-  ["mc", "mr", "m-", "m+"],
-  ["7", "8", "9", "x"],
-  ["4", "5", "6", "-"],
-  ["1", "2", "3", "+"],
-  ["0", ",", "="],
-];
+import { buttons, coloredKeys } from "../helperKeys";
 
 type BGProps = {
   handleInput: Function;
@@ -25,15 +14,19 @@ type BGProps = {
 const ButtonGrid: FunctionComponent<BGProps> = ({ handleInput }) => {
   return (
     <View style={styles.container}>
-      {butt.map((numArr, index) => {
+      {buttons.map((numArr, index) => {
         return (
           <View style={styles.innerView} key={index + 4000}>
             {numArr.map((num) => {
               return (
                 <TouchableOpacity
-                  style={[styles.button, styles.round]}
+                  style={[
+                    styles.button,
+                    coloredKeys.includes(num) && styles.yellow,
+                    num === "0" && styles.zero,
+                  ]}
                   key={num}
-                  onPress={(e: NativeSyntheticEvent<NativeTouchEvent>) => {
+                  onPress={() => {
                     handleInput(num);
                   }}
                 >
@@ -70,11 +63,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  rect: {
-    // width: 100,
+  yellow: {
+    backgroundColor: "yellow",
   },
-  round: {
-    // width: 50,
+  zero: {
+    flexGrow: 2.5,
   },
   text: {
     fontSize: 30,

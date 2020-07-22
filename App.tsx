@@ -1,12 +1,8 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Display from "./components/Display";
 import ButtonGrid from "./components/ButtonGrid";
-
-const notNums: string[] = ["AC", "mc", "mr", "m-", "m+", "="];
-// const operators: string[] = ["AC", "mc", "mr", "m-", "m+", "="];
-const operators = ["+", "-", "x", "÷", "="];
+import { notNums, operators } from "./helperKeys";
 
 const App = () => {
   const [displayValue, setDisplayValue] = useState("");
@@ -60,8 +56,5 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 });
-// backgroundColor: "#fff",
-//     alignItems: "center",
-//     justifyContent: "center",
 
 export default App;
