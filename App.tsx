@@ -1,56 +1,54 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Button from "./components/Button";
 import Display from "./components/Display";
 import ButtonGrid from "./components/ButtonGrid";
 
-const operators: string[] = ["AC", "mc", "mr", "m-", "m+", "="];
+const notNums: string[] = ["AC", "mc", "mr", "m-", "m+", "="];
 // const operators: string[] = ["AC", "mc", "mr", "m-", "m+", "="];
+const operators = ["+", "-", "x", "÷", "="];
 
 const App = () => {
-  const [values, setValues] = useState("");
+  const [displayValue, setDisplayValue] = useState("");
 
   const acceptOnlyValues = (value: string) => {
-    const allowed = !operators.some((val) => val === value);
-    // if (allowed) {
-    //   return value;
-    //   // setValues((prev: string) => prev + value);
-    // }
+    const allowed = !notNums.some((val) => val === value);
     return allowed ? value : "";
   };
 
   const lastIsOperator = () => {
-    const operators = ["+", "-", "x", "÷"];
-    return values ? operators.includes(values[values.length - 1]) : false;
+    return displayValue
+      ? operators.includes(displayValue[displayValue.length - 1])
+      : false;
   };
-  const valueIsOperator = (val: string) => {
-    const operators = ["+", "-", "x", "÷"];
-    return operators.includes(val);
+  const inputIsOperator = (input: string) => {
+    return operators.includes(input);
   };
 
-  const handleInput = (val: string) => {
-    /*
-    acceptOnlyValues should return values allowed to another function that should 
-    determine if the last string in "value" is an operator.if an operator, do not update state
-    */
-    if (val === "AC") {
-      setValues("");
-    }
-    if (lastIsOperator()) {
-      if (valueIsOperator(val)) {
-        return;
-      } else {
-        setValues((prev) => acceptOnlyValues(prev + val));
-      }
+  const handleInput = (input: string) => {
+    if (input === "AC") {
+      setDisplayValue("");
+    } else if (input === "=") {
+      // solve stuff
+      // setValues(eval(values));
+      console.log("calculating value...");
     } else {
-      setValues((prev) => acceptOnlyValues(prev + val));
+      if (!inputIsOperator(input)) {
+        // if input is not an operator,add it to display value
+        setDisplayValue((prev) => prev + input);
+      } else {
+        // if it is an operator, check if last character in value is an operator as well
+        if (!lastIsOperator() && displayValue) {
+          // if the last character is not an operator, add current operator
+          setDisplayValue((prev) => prev + input);
+        }
+      }
     }
   };
 
   return (
     <View style={styles.container}>
-      <Display values={values} />
+      <Display values={displayValue} />
       <ButtonGrid handleInput={handleInput} />
     </View>
   );

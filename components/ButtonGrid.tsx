@@ -8,7 +8,6 @@ import {
   NativeTouchEvent,
   NativeSyntheticEvent,
 } from "react-native";
-// import Button from "./Button";
 
 const butt: string[][] = [
   ["AC", "^", "%", "÷"],
@@ -82,4 +81,3 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 });
-//  acceptOnlyValues(num);
