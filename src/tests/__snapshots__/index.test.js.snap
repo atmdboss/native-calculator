@@ -1,0 +1,955 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders correctly renders app element 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "backgroundColor": "#000000",
+        "flex": 2,
+        "justifyContent": "flex-end",
+        "padding": 20,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "whitesmoke",
+          "fontSize": 40,
+        }
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#000000",
+        "flex": 7,
+        "padding": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#a5a5a5",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          AC
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#a5a5a5",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          +/-
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#a5a5a5",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          %
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#fba022",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          ÷
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#333333",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          mc
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#333333",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          mr
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#333333",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          m-
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#fba022",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          m+
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#333333",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          7
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#333333",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          8
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#333333",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          9
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#fba022",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          x
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#333333",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          4
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#333333",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          5
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#333333",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          6
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#fba022",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          -
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#333333",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          1
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#333333",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          2
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#333333",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          3
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#fba022",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          +
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#333333",
+            "borderRadius": 50,
+            "flexGrow": 2.5,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          0
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#333333",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          .
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#fba022",
+            "borderRadius": 50,
+            "flexGrow": 1,
+            "height": 90,
+            "justifyContent": "center",
+            "margin": 2,
+            "opacity": 1,
+            "width": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "whitesmoke",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          =
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
