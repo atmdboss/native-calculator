@@ -5,7 +5,7 @@ import {
   View,
   TouchableOpacity,
 } from "react-native";
-import { buttons, coloredKeys } from "../helperKeys";
+import { buttons, yellowColoredKeys, greyColoredKeys } from "../helperKeys";
 
 type BGProps = {
   handleInput: Function;
@@ -20,9 +20,11 @@ const ButtonGrid: FunctionComponent<BGProps> = ({ handleInput }) => {
             {numArr.map((num) => {
               return (
                 <TouchableOpacity
+                  activeOpacity={0.7}
                   style={[
                     styles.button,
-                    coloredKeys.includes(num) && styles.yellow,
+                    yellowColoredKeys.includes(num) && styles.yellow,
+                    greyColoredKeys.includes(num) && styles.grey,
                     num === "0" && styles.zero,
                   ]}
                   key={num}
@@ -45,8 +47,9 @@ export default ButtonGrid;
 
 const styles = StyleSheet.create({
   container: {
+    padding: 10,
     flex: 7,
-    backgroundColor: "red",
+    backgroundColor: "#000000",
   },
   innerView: {
     flex: 1,
@@ -55,7 +58,8 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 50,
-    backgroundColor: "green",
+    backgroundColor: "#333333",
+
     height: 90,
     width: 20,
     margin: 2,
@@ -64,7 +68,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   yellow: {
-    backgroundColor: "yellow",
+    backgroundColor: "#fba022",
+  },
+  grey: {
+    backgroundColor: "#a5a5a5",
   },
   zero: {
     flexGrow: 2.5,
@@ -72,5 +79,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 30,
     textAlign: "center",
+    color: "whitesmoke",
   },
 });

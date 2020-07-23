@@ -7,7 +7,9 @@ export const buttons: string[][] = [
   ["0", ".", "="],
 ];
 
-export const coloredKeys: string[] = ["÷", "m+", "x", "-", "+", "="];
+export const yellowColoredKeys: string[] = ["÷", "m+", "x", "-", "+", "="];
+
+export const greyColoredKeys: string[] = ["AC", "+/-", "%"];
 
 export const notNums: string[] = ["AC", "mc", "mr", "m-", "m+", "="];
 

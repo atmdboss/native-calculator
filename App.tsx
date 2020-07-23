@@ -21,13 +21,13 @@ const App = () => {
   const handleNumberFlip = () => {
     if (displayValue) {
       if (lastIsOperator()) {
-        const value = displayValue.slice(0, displayValue.length - 1).replace(
+        let value = displayValue.slice(0, displayValue.length - 1).replace(
           /[()]/g,
           "",
         );
         if (value.includes("—")) {
           // its anegative number
-          value.replace("—", "-");
+          value = value.replace("—", "-");
         }
         const num = Number(value);
         // operator exists if lastIsOperator
@@ -45,11 +45,11 @@ const App = () => {
           let [first, second] = displayValue.split(operator);
           // console.log({ first, second });
 
-          const value = second.replace(/[()]/g, "");
+          let value = second.replace(/[()]/g, "");
           // operator exists if lastIsOperator
           if (value.includes("—")) {
             // its anegative number
-            value.replace("—", "-");
+            value = value.replace("—", "-");
           }
           const num = Number(value);
           if (Math.sign(num) === 1) {
@@ -61,8 +61,12 @@ const App = () => {
           }
         } else {
           // display is one number
-
-          const num = Number(displayValue.replace(/[()]/g, ""));
+          let value = displayValue.replace(/[()]/g, "");
+          if (value.includes("—")) {
+            // its a negative number
+            value = value.replace("—", "-");
+          }
+          const num = Number(value);
           if (Math.sign(num) === 1) {
             setDisplayValue(`(—${num.toString()})`);
           } else {
@@ -117,7 +121,11 @@ const App = () => {
             setAddedOperator(false);
             return "";
           } else {
-            return result.toString();
+            if (result < 0) {
+              return result.toString().replace("-", "—");
+            } else {
+              return result.toString();
+            }
           }
         }
       } else {
@@ -136,7 +144,11 @@ const App = () => {
             setAddedOperator(false);
             return "";
           } else {
-            return value;
+            if (Number(value) < 0) {
+              return value.replace("-", "—");
+            } else {
+              return value;
+            }
           }
         }
       }
@@ -230,19 +242,21 @@ const App = () => {
       handleMemoryInput(input);
     } else {
       // if it gets here, then it's likely just a number, setState with it regardless
-      if (input === "0" || input === "%" || input === ".") {
-        if (displayValue) {
-          setDisplayValue((prev) => prev + input);
-        } else {
-          if (input === ".") {
-            setDisplayValue("0.");
+      if (displayValue.length < 16) {
+        if (input === "0" || input === "%" || input === ".") {
+          if (displayValue) {
+            setDisplayValue((prev) => prev + input);
+          } else {
+            if (input === ".") {
+              setDisplayValue("0.");
+            }
           }
-        }
-      } else {
-        if (displayValue === "0") {
-          setDisplayValue(input);
         } else {
-          setDisplayValue((prev) => prev + input);
+          if (displayValue === "0") {
+            setDisplayValue(input);
+          } else {
+            setDisplayValue((prev) => prev + input);
+          }
         }
       }
     }
@@ -259,7 +273,6 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
   },
 });
 

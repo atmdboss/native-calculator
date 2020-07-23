@@ -13,12 +13,14 @@ export default Display;
 
 const styles = StyleSheet.create({
   container: {
+    padding: 20,
     flex: 2,
-    backgroundColor: "yellow",
+    backgroundColor: "#000000",
     justifyContent: "flex-end",
     alignItems: "flex-end",
   },
   text: {
     fontSize: 40,
+    color: "whitesmoke",
   },
 });
