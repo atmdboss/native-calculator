@@ -1,10 +1,7 @@
 import * as React from "react";
-// import "react-native";
 import * as renderer from "react-test-renderer";
-import {ButtonGrid} from '../components/ButtonGrid';
-import App from '../../App';
-
-
+import {ButtonGrid} from '../src/components/ButtonGrid';
+import App from '../App';
 
 describe('App renders correctly',()=>{
     it('renders app element',()=>{
@@ -27,5 +24,3 @@ describe('ButtonGrid renders correctly',()=>{
         expect(nested.length).toBe(23); 
     });    
 });
-
-
