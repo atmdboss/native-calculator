@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Alert } from "react-native";
 import Display from "./components/Display";
 import ButtonGrid from "./components/ButtonGrid";
 import { notNums, operators, memoryKeys } from "./helperKeys";
@@ -7,8 +7,7 @@ import { notNums, operators, memoryKeys } from "./helperKeys";
 const App = () => {
   const [displayValue, setDisplayValue] = useState("");
   const [operator, setOperator] = useState("");
-  // const [firstValue, setFirstValue] = useState(0);
-  // const [secondValue, setSecondValue] = useState(0);
+  const [memory, setMemory] = useState("");
   const [addedOperator, setAddedOperator] = useState(false);
 
   // const acceptOnlyValues = (value: string) => {
@@ -64,8 +63,8 @@ const App = () => {
         }
       }
     }
-    setOperator("");
-    setAddedOperator(false);
+    // setOperator("");
+    // setAddedOperator(false);
     return displayValue;
   };
   const handleOperationInput = (input: string) => {
@@ -97,7 +96,50 @@ const App = () => {
   };
 
   const handleMemoryInput = (input: string) => {
-    console.log(input);
+    if (input === "mc") {
+      setMemory("");
+      Alert.alert("Clear", "Memory cleared");
+    } else if (input === "mr") {
+      if (memory) {
+        if (lastIsOperator()) {
+          setDisplayValue((prev) => prev + memory);
+        } else {
+          setDisplayValue(memory);
+        }
+      } else {
+        Alert.alert(
+          "Empty",
+          "Nothing in memory. Try tapping a number and then tapping 'm+'",
+        );
+      }
+    } else if (input === "m+") {
+      if (!lastIsOperator()) {
+        const result = handleResult();
+        const resultNum = Number(result) + Number(memory);
+        if (resultNum !== 0) {
+          setMemory(resultNum.toString());
+          Alert.alert(
+            "Added to memory",
+            `Memory now contains ${resultNum.toString()}`,
+          );
+        }
+      }
+    } else if (input === "m-") {
+      if (!lastIsOperator()) {
+        const result = handleResult();
+        let resultNum: number = 0;
+        if (Number(memory) > Number(result)) {
+          resultNum = Number(memory) - Number(result);
+        } else {
+          resultNum = Number(result) - Number(memory);
+        }
+        setMemory(resultNum.toString());
+        Alert.alert(
+          "Subtracted from memory",
+          `Memory now contains ${resultNum.toString()}`,
+        );
+      }
+    }
   };
 
   const handleInput = (input: string) => {
@@ -112,7 +154,7 @@ const App = () => {
     } else if (memoryKeys.includes(input)) {
       handleMemoryInput(input);
     } else {
-      // if it gets here, then it's just a number, setState with it regardless
+      // if it gets here, then it's likely just a number, setState with it regardless
       if (input === "0" || input === "%") {
         if (displayValue) {
           setDisplayValue((prev) => prev + input);
