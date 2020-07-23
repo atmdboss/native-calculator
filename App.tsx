@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, View, Alert } from "react-native";
 import Display from "./components/Display";
 import ButtonGrid from "./components/ButtonGrid";
-import { notNums, operators, memoryKeys } from "./helperKeys";
+import { operators, memoryKeys } from "./helperKeys";
 
 const App = () => {
   const [displayValue, setDisplayValue] = useState("");
@@ -10,21 +10,67 @@ const App = () => {
   const [memory, setMemory] = useState("");
   const [addedOperator, setAddedOperator] = useState(false);
 
-  // const acceptOnlyValues = (value: string) => {
-  //   const allowed = !notNums.some((val) => val === value);
-  //   return allowed ? value : "";
-  // };
-
   const lastIsOperator = () => {
     return displayValue
       ? operators.includes(displayValue[displayValue.length - 1])
       : false;
   };
-  const lastIsPercent = () => {
-    return displayValue ? displayValue.endsWith("%") : false;
-  };
   const inputIsOperator = (input: string) => {
     return operators.includes(input);
+  };
+  const handleNumberFlip = () => {
+    if (displayValue) {
+      if (lastIsOperator()) {
+        const value = displayValue.slice(0, displayValue.length - 1).replace(
+          /[()]/g,
+          "",
+        );
+        if (value.includes("—")) {
+          // its anegative number
+          value.replace("—", "-");
+        }
+        const num = Number(value);
+        // operator exists if lastIsOperator
+        if (Math.sign(num) === 1) {
+          // positive number
+          setDisplayValue(`(—${num.toString()})${operator}`);
+        } else {
+          // negative number
+          setDisplayValue(Math.abs(num).toString() + operator);
+        }
+      } else {
+        // either there is one set of numbers or two sets of numbers
+        if (operator) {
+          // display is two values
+          let [first, second] = displayValue.split(operator);
+          // console.log({ first, second });
+
+          const value = second.replace(/[()]/g, "");
+          // operator exists if lastIsOperator
+          if (value.includes("—")) {
+            // its anegative number
+            value.replace("—", "-");
+          }
+          const num = Number(value);
+          if (Math.sign(num) === 1) {
+            // positive number
+            setDisplayValue(`${first}${operator}(—${num.toString()})`);
+          } else {
+            // negative number
+            setDisplayValue(first + operator + Math.abs(num).toString());
+          }
+        } else {
+          // display is one number
+
+          const num = Number(displayValue.replace(/[()]/g, ""));
+          if (Math.sign(num) === 1) {
+            setDisplayValue(`(—${num.toString()})`);
+          } else {
+            setDisplayValue(Math.abs(num).toString());
+          }
+        }
+      }
+    }
   };
   const handleResult = () => {
     // is displayValue empty? if it is, do nada. if it isnt, check if an operation has been set. if yes, check if last is is an operator. if yes, do nothing. else
@@ -32,16 +78,28 @@ const App = () => {
       if (addedOperator) {
         if (!lastIsOperator()) {
           let [first, second] = displayValue.split(operator);
-          if (first.includes("%")) {
-            first = first.slice(0, first.length - 1);
-            first = (Number(first) / 100).toString();
-            // if(lastIsPercent())
+
+          if (first) {
+            first = first.replace(/[()]/g, "");
+            if (first.includes("—")) {
+              first = first.replace("—", "-");
+            }
+            if (first.includes("%")) {
+              first = first.slice(0, first.length - 1);
+              first = (Number(first) / 100).toString();
+            }
           }
-          if (second && second.includes("%")) {
-            second = second.slice(0, second.length - 1);
-            second = (Number(second) / 100).toString();
-            // if(lastIsPercent())
+          if (second) {
+            second = second.replace(/[()]/g, "");
+            if (second.includes("—")) {
+              second = second.replace("—", "-");
+            }
+            if (second.includes("%")) {
+              second = second.slice(0, second.length - 1);
+              second = (Number(second) / 100).toString();
+            }
           }
+
           if (!second) return displayValue;
           let result: number = 0;
           if (operator === "+") {
@@ -53,18 +111,36 @@ const App = () => {
           } else if (operator === "÷") {
             result = Number(first) / Number(second);
           }
-          return result.toString();
+          if (Number.isNaN(result)) {
+            Alert.alert("Error", "Operation not allowed");
+            setOperator("");
+            setAddedOperator(false);
+            return "";
+          } else {
+            return result.toString();
+          }
         }
       } else {
         if (displayValue.includes("%")) {
-          let value = displayValue.slice(0, displayValue.length - 1);
+          let value = displayValue.replace(/[()]/g, "").slice(
+            0,
+            displayValue.length - 1,
+          );
+          if (value.includes("—")) {
+            value = value.replace("—", "-");
+          }
           value = (Number(value) / 100).toString();
-          return value;
+          if (Number.isNaN(Number(value))) {
+            Alert.alert("Error", "Operation not allowed");
+            setOperator("");
+            setAddedOperator(false);
+            return "";
+          } else {
+            return value;
+          }
         }
       }
     }
-    // setOperator("");
-    // setAddedOperator(false);
     return displayValue;
   };
   const handleOperationInput = (input: string) => {
@@ -127,12 +203,7 @@ const App = () => {
     } else if (input === "m-") {
       if (!lastIsOperator()) {
         const result = handleResult();
-        let resultNum: number = 0;
-        if (Number(memory) > Number(result)) {
-          resultNum = Number(memory) - Number(result);
-        } else {
-          resultNum = Number(result) - Number(memory);
-        }
+        const resultNum = Math.abs(Number(memory) - Number(result));
         setMemory(resultNum.toString());
         Alert.alert(
           "Subtracted from memory",
@@ -149,18 +220,30 @@ const App = () => {
       setAddedOperator(false);
     } else if (input === "=") {
       setDisplayValue(handleResult());
+      setOperator("");
+      setAddedOperator(false);
+    } else if (input === "+/-") {
+      handleNumberFlip();
     } else if (inputIsOperator(input)) {
       handleOperationInput(input);
     } else if (memoryKeys.includes(input)) {
       handleMemoryInput(input);
     } else {
       // if it gets here, then it's likely just a number, setState with it regardless
-      if (input === "0" || input === "%") {
+      if (input === "0" || input === "%" || input === ".") {
         if (displayValue) {
           setDisplayValue((prev) => prev + input);
+        } else {
+          if (input === ".") {
+            setDisplayValue("0.");
+          }
         }
       } else {
-        setDisplayValue((prev) => prev + input);
+        if (displayValue === "0") {
+          setDisplayValue(input);
+        } else {
+          setDisplayValue((prev) => prev + input);
+        }
       }
     }
   };
